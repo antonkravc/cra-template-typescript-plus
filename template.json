@@ -1,0 +1,86 @@
+{
+  "package": {
+    "scripts": {
+      "format": "prettier --write .",
+      "lint": "eslint --fix .",
+      "check-types": "tsc --project . --noEmit",
+      "validate-source": "npm run check-types && eslint . && prettier --check ."
+    },
+    "eslintConfig": {
+      "root": true,
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint",
+        "react",
+        "import",
+        "simple-import-sort"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "prettier",
+        "prettier/react"
+      ],
+      "settings": {
+        "react": {
+          "version": "detect"
+        }
+      },
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "rules": {
+        "import/newline-after-import": [
+          "error",
+          {
+            "count": 1
+          }
+        ],
+        "simple-import-sort/imports": "warn",
+        "simple-import-sort/exports": "warn"
+      },
+      "ignorePatterns": ["node_modules/", "build/"]
+    },
+    "lint-staged": {
+      "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+      "*.{js,jsx,ts,tsx,css,html,json,yml,yaml,graphql,md}": "prettier --write"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "dependencies": {
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-scripts": "4.0.1",
+      "web-vitals": "^1.1.0"
+    },
+    "devDependencies": {
+      "@testing-library/jest-dom": "^5.11.9",
+      "@testing-library/react": "^11.2.3",
+      "@testing-library/user-event": "^12.6.0",
+      "@types/jest": "^26.0.20",
+      "@types/node": "^14.14.20",
+      "@types/react": "^17.0.0",
+      "@types/react-dom": "^17.0.0",
+      "@typescript-eslint/eslint-plugin": "^4.13.0",
+      "@typescript-eslint/parser": "^4.13.0",
+      "eslint": "^7.17.0",
+      "eslint-config-prettier": "^7.1.0",
+      "eslint-plugin-import": "^2.22.1",
+      "eslint-plugin-react": "^7.22.0",
+      "eslint-plugin-simple-import-sort": "^7.0.0",
+      "husky": "^4.3.7",
+      "lint-staged": "^10.5.3",
+      "prettier": "^2.2.1",
+      "typescript": "^4.1.3"
+    }
+  }
+}

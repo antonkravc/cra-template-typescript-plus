@@ -1,0 +1,26 @@
+{
+  "name": "cra-template-typescript-plus",
+  "version": "1.0.0",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript",
+    "vscode",
+    "eslint",
+    "prettier"
+  ],
+  "description": "Extended TypeScript template for Create React App.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonkravc/cra-template-typescript-plus.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
