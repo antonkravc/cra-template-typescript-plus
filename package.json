@@ -1,6 +1,11 @@
 {
   "name": "cra-template-typescript-plus",
   "version": "1.0.0",
+  "description": "Extended TypeScript template for Create React App.",
+  "author": {
+    "name": "Anton Kravchenko",
+    "email": "anton.kravc@gmail.com"
+  },
   "keywords": [
     "react",
     "create-react-app",
@@ -10,7 +15,6 @@
     "eslint",
     "prettier"
   ],
-  "description": "Extended TypeScript template for Create React App.",
   "repository": {
     "type": "git",
     "url": "https://github.com/antonkravc/cra-template-typescript-plus.git"
@@ -22,5 +26,22 @@
   "files": [
     "template",
     "template.json"
-  ]
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "validate-source": "prettier --check ."
+  },
+  "devDependencies": {
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,html,json,yml,yaml,md}": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }

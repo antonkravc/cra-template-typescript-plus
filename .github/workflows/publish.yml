@@ -1,0 +1,26 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout source
+
+      - uses: actions/setup-node@v1
+        name: Setup Node
+        with:
+          node-version: 12.9
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install
+        name: Install dependencies
+
+      - run: npm publish
+        name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
