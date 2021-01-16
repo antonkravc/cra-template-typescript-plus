@@ -19,16 +19,15 @@ jobs:
         name: Cache dependencies
         with:
           path: |
+            ~/.npm
             ~/.cache
             !~/.cache/exclude
-            node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        if: "steps.cache.outputs.cache-hit != 'true'"
-        run: npm install
+        run: npm ci
 
       - name: Validate source
         run: npm run validate-source
