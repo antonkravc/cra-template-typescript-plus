@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   validate-source:
+    name: Validate source
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout source

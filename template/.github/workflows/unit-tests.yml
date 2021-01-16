@@ -18,6 +18,7 @@ on:
 
 jobs:
   unit-tests:
+    name: Unit tests
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout source
