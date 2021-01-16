@@ -37,7 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-${{ github.workflow }}-
             ${{ runner.os }}-npm-
-            ${{ runner.os }}
+            ${{ runner.os }}-
 
       - name: Create a project using template
         run: npx create-react-app ${{ runner.temp }}/test --template file:.
