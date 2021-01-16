@@ -6,16 +6,16 @@ jobs:
   validate-source:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout source
+      - name: Checkout source
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
-        name: Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
           node-version: 12.9
 
-      - uses: actions/cache@v2
-        name: Cache dependencies
+      - name: Cache npm
+        uses: actions/cache@v2
         with:
           path: |
             ~/.npm
