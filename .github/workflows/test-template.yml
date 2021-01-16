@@ -5,6 +5,10 @@ on:
     paths:
       - "template/**"
       - "template.json"
+  pull_request:
+    paths:
+      - "template/**"
+      - "template.json"
 
 jobs:
   test-template:
