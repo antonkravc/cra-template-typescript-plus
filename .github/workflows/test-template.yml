@@ -1,0 +1,33 @@
+name: Test template
+
+on:
+  push:
+    paths:
+      - "template/**"
+      - "template.json"
+
+jobs:
+  test-template:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.9
+
+      - name: Cache npm
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            !~/.cache/exclude
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Create a project using template
+        run: npx create-react-app ${{ runner.temp }}/test --template file:.
