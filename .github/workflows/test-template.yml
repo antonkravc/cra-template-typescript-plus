@@ -30,8 +30,9 @@ jobs:
             ~/.npm
             ~/.cache
             !~/.cache/exclude
-          key: ${{ runner.os }}-npm-${{ github.workflow }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ github.workflow }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('template.json') }}
           restore-keys: |
+            ${{ runner.os }}-npm-${{ github.workflow }}-${{ hashFiles('package-lock.json') }}-
             ${{ runner.os }}-npm-${{ github.workflow }}-
             ${{ runner.os }}-npm-
             ${{ runner.os }}-
