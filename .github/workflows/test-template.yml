@@ -31,11 +31,13 @@ jobs:
             !~/.cache/exclude
           key: >
             ${{ runner.os }}
+            -npm
             -${{ github.workflow }}
             -${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-${{ github.workflow }}-
-            ${{ runner.os }}-
+            ${{ runner.os }}-npm-${{ github.workflow }}-
+            ${{ runner.os }}-npm-
+            ${{ runner.os }}
 
       - name: Create a project using template
         run: npx create-react-app ${{ runner.temp }}/test --template file:.
