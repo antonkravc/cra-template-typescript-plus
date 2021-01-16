@@ -17,6 +17,21 @@ jobs:
           node-version: 12.9
           registry-url: https://registry.npmjs.org
 
+      - name: Cache npm
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            !~/.cache/exclude
+          key: >
+            ${{ runner.os }}
+            -${{ github.workflow }}
+            -${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ github.workflow }}-
+            ${{ runner.os }}-
+
       - run: npm install
         name: Install dependencies
 
