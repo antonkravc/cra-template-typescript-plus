@@ -2,7 +2,13 @@
 
 Extended Typescript template for [Create React App](https://github.com/facebook/create-react-app).
 
-Added/modified files:
+```shell
+npx create-react-app <project name> --template typescript-plus
+```
+
+## Differences from the original template
+
+### Added/modified files
 
 | Path                                    | Description                                                 |
 | --------------------------------------- | ----------------------------------------------------------- |
@@ -14,7 +20,7 @@ Added/modified files:
 | `gitignore`                             | Extended .gitignore for React, VS Code, Webstorm and ESLint |
 | `.prettierignore`                       | Prettier ignore files                                       |
 
-Added scripts:
+### Added scripts
 
 | Name              | Description                             |
 | ----------------- | --------------------------------------- |
